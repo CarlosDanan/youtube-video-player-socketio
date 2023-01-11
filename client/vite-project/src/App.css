@@ -1,0 +1,136 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px, 15px, 15px, 10px;
+  margin-top: 30px;
+}
+
+.input-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.url-input {
+  width: 45%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.video-wrapper-div {
+  width: 100px;
+  height: 100px;
+  padding-left: 100px;
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.player-wrapper {
+  position: relative;
+  /* 720 / 1280 = 0.5625 */
+}
+
+.react-player {
+  position: relative;
+}
+
+.video-controllers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+  border-top: 5px black solid;
+}
+
+.video-controllers button {
+  height: 30px;
+  margin-left: 8px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.progress-bar-nums {
+  display: flex;
+  flex-direction: row;
+}
+
+.video-box {
+  border: 2px black solid;
+  border-radius: 9px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.ytp-popup ytp-contextmenu {
+  display: none !important;
+}
+
+.ytp-watch-later-title {
+  color: red !important;
+}
+
+/* Main Container */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.controls div {
+
+  margin-left: 5px;
+}
+
+/* The time controls section */
+.video {
+  width: 300px;
+}
+
+
+.timecontrols {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  bottom: 4rem;
+  margin-left: 10vw;
+}
+
+.time_progressbarContainer {
+  background-color: gray;
+  border-radius: 15px;
+  width: 75vw;
+  height: 5px;
+  z-index: 30;
+  position: relative;
+  margin: 0 20px;
+}
+
+.time_progressBar {
+  border-radius: 15px;
+  background-color: indigo;
+  height: 100%;
+}
+
+.controlsTime {
+  color: black;
+}
