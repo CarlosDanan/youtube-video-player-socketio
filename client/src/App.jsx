@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ProgressBarNumbers from './ProgressBarNumbers';
 import './App.css';
+import Spinner from 'react-bootstrap/Spinner';
 import socketIO from 'socket.io-client';
 const socket = socketIO.connect('http://localhost:4000');
 
 
 function App() {
-  const [youtubeId, setYoutubeId] = useState('');
+  const [loadingText, setLoadingText] = useState('');
+  const [loading, setLoading] = useState(false);
   const [inputString, setInputString] = useState('');
   const [videoTitle, setVideoTitle] = useState('');
   const [videoTime, setVideoTime] = useState(0);
@@ -25,10 +27,13 @@ function App() {
       setVideoTitle(title)
       setVideoTime(seconds)
       setTitleReady(true);
+      setLoadingText('Downloading video');
     });
     socket.on('video-ready', (ready) => {
       if (ready) {
         setReady(true);
+        setLoading(false);
+        setLoadingText('');
       }
     });
   })
@@ -45,6 +50,8 @@ function App() {
     let videoId = (match && match[7].length == 11) ? match[7] : false;
     socket.emit('download', videoId, count)
     setCount(count + 1)
+    setLoading(true);
+    setLoadingText('Loading video info');
   }
 
   const fastForward = () => {
@@ -113,7 +120,14 @@ function App() {
           </div>
         </div>
       }
-
+      {loading &&
+        <div className='loader' >
+          <Spinner />
+          <p>
+            {loadingText}
+          </p>
+        </div>
+      }
 
     </div>
   );
